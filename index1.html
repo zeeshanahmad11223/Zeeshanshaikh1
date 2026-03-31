@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zeeshan Shaikh Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        header h1 {
+            font-size: 40px;
+            color: #38bdf8;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #cbd5f5;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .upload-box {
+            border: 2px dashed #38bdf8;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        button {
+            background: #38bdf8;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        .preview {
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Zeeshan Shaikh</h1>
+    <p>BCA Student | LNT College Muzaffarpur</p>
+    <p>Email: za0943813@gmail.com</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>👨‍💻 About Me</h2>
+        <p>
+            I am a BCA student passionate about web development and coding.
+            I love building modern websites and learning new technologies.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🚀 Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Python Basics</li>
+            <li>C Programming</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>📁 Upload Your Work</h2>
+
+        <div class="upload-box">
+            <p>Select file (image/project)</p>
+            <input type="file" id="fileInput">
+            <br>
+            <button onclick="uploadFile()">Upload</button>
+
+            <div class="preview" id="preview"></div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Zeeshan Shaikh | Portfolio</p>
+</footer>
+
+<script>
+    function uploadFile() {
+        const fileInput = document.getElementById("fileInput");
+        const preview = document.getElementById("preview");
+
+        preview.innerHTML = "";
+
+        if (fileInput.files.length === 0) {
+            alert("Please select a file!");
+            return;
+        }
+
+        const file = fileInput.files[0];
+
+        if (file.type.startsWith("image/")) {
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(file);
+            img.style.width = "200px";
+            img.style.borderRadius = "10px";
+            preview.appendChild(img);
+        } else {
+            preview.innerHTML = `<p>Uploaded: ${file.name}</p>`;
+        }
+    }
+</script>
+
+</body>
+</html>
